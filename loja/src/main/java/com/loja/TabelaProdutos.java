@@ -11,18 +11,12 @@ public class TabelaProdutos {
      * será preenchida :)
      */
     public TabelaProdutos() {
-        Produto caneta = new Produto(1, "Caneta BIC",
-                "Caneta BIC na cor azul", 1.99);
-        Produto borracha = new Produto(2, "Borracha branca",
-                "Borracha branca comum", 3.99);
-        Produto lapis = new Produto(3, "Lápis Faber Castel",
-                "Lápis Faber Castel comum", 2.99);
-        Produto apontador = new Produto(4, "Apontador",
-                "Apontador comum com reservatório", 7.99);
-        Produto caderno = new Produto(5, "Caderno espiral",
-                "Caderno espiral de 96 folhas", 15.99);
-        Produto controle = new Produto(6, "Controle do projeto",
-                "Controle do projetor Epson", 69.99);
+        Produto caneta = new Produto(1, "Caneta BIC", "Caneta BIC na cor azul", 1.99);
+        Produto borracha = new Produto(2, "Borracha branca", "Borracha branca comum", 3.99);
+        Produto lapis = new Produto(3, "Lápis Faber Castel", "Lápis Faber Castel comum", 2.99);
+        Produto apontador = new Produto(4, "Apontador", "Apontador comum com reservatório", 7.99);
+        Produto caderno = new Produto(5, "Caderno espiral", "Caderno espiral de 96 folhas", 15.99);
+        Produto controle = new Produto(6, "Controle do projeto", "Controle do projetor Epson", 69.99);
 
         this.produtos.add(caneta);
         this.produtos.add(borracha);
@@ -59,5 +53,18 @@ public class TabelaProdutos {
         }
         return produtoProcurado;
     }
+
+    public Produto cadastrarNovoProduto(Produto novoProduto) {
+        int ultimoIndex = this.produtos.size() - 1;
+        Produto utlimoProduto = this.produtos.get(ultimoIndex);
+        int proximoId = utlimoProduto.getId() + 1;
+
+        novoProduto.setId(proximoId);
+        this.produtos.add(novoProduto);
+        return novoProduto;
+    }
+
+
+
 
 }
