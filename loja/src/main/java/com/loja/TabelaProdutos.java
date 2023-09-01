@@ -54,6 +54,15 @@ public class TabelaProdutos {
         return produtoProcurado;
     }
 
+    /**
+     * Método que cadastra um novo produto.
+     * Primeiro busca o último item na lista
+     * Depois incrementa o ID
+     * Atribui o novo ID para o produto a ser salvo
+     *
+     * @param novoProduto
+     * @return
+     */
     public Produto cadastrarNovoProduto(Produto novoProduto) {
         int ultimoIndex = this.produtos.size() - 1;
         Produto utlimoProduto = this.produtos.get(ultimoIndex);
@@ -64,7 +73,24 @@ public class TabelaProdutos {
         return novoProduto;
     }
 
-
+    /**
+     * Método que atualiza um produto
+     * Primeiro busca o produto a atualizar pelo ID
+     * Depois atribui as novas infomações: nome, descrição e valor
+     * Finalmente salva o produto atualizado
+     *
+     * @param produtoId
+     * @param produtoAtualizar
+     */
+    public void atualizarProduto(int produtoId,
+                                       Produto produtoAtualizar) {
+        Produto produtoProcurado = this.buscarProdutoPeloId(produtoId);
+        if (produtoProcurado != null) {
+            produtoProcurado.setNome(produtoAtualizar.getNome());
+            produtoProcurado.setDescricao(produtoAtualizar.getDescricao());
+            produtoProcurado.setValorUnitario(produtoAtualizar.getValorUnitario());
+        }
+    }
 
 
 }
